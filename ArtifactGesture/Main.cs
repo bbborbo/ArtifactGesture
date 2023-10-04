@@ -18,7 +18,7 @@ namespace ArtifactGesture
     [BepInDependency("com.bepis.r2api", BepInDependency.DependencyFlags.HardDependency)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
     [BepInPlugin("com.Borbo.ArtifactGesture", "This Mod Turns Gesture Into An Artifact So That People Can Stop Telling Me Removing Gesture In BalanceOverhaulRBO Was Unnecessary", "1.0.0")]
-    [R2APISubmoduleDependency(nameof(ContentAddition), nameof(LoadoutAPI), nameof(LanguageAPI))]
+    [R2APISubmoduleDependency(nameof(ContentAddition), nameof(LanguageAPI))]
     public class Main : BaseUnityPlugin
     {
         public static AssetBundle iconBundle = LoadAssetBundle(Properties.Resources.misc);
