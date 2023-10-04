@@ -46,6 +46,13 @@ namespace ArtifactGesture
             On.RoR2.ItemCatalog.Init += RemoveGestureItem;
             On.RoR2.Inventory.CalculateEquipmentCooldownScale += GestureArtifactCdr;
             ContentAddition.AddArtifactDef(Gesture);
+
+            ItemDef gesture = LegacyResourcesAPI.Load<ItemDef>("ItemDefs/" + nameof(RoR2Content.Items.AutoCastEquipment));
+            if (gesture)
+            {
+                gesture.tier = ItemTier.NoTier;
+                gesture.deprecatedTier = ItemTier.NoTier;
+            }
         }
 
         private float GestureArtifactCdr(On.RoR2.Inventory.orig_CalculateEquipmentCooldownScale orig, Inventory self)
