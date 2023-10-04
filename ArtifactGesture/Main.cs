@@ -18,7 +18,7 @@ namespace ArtifactGesture
     [BepInDependency("com.bepis.r2api", BepInDependency.DependencyFlags.HardDependency)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
     [BepInPlugin("com.Borbo.ArtifactGesture", "This Mod Turns Gesture Into An Artifact So That People Can Stop Telling Me Removing Gesture In BalanceOverhaulRBO Was Unnecessary", "1.0.0")]
-    [R2APISubmoduleDependency(nameof(ArtifactAPI), nameof(LoadoutAPI), nameof(LanguageAPI))]
+    [R2APISubmoduleDependency(nameof(ContentAddition), nameof(LoadoutAPI), nameof(LanguageAPI))]
     public class Main : BaseUnityPlugin
     {
         public static AssetBundle iconBundle = LoadAssetBundle(Properties.Resources.misc);
@@ -45,7 +45,7 @@ namespace ArtifactGesture
             On.RoR2.EquipmentSlot.FixedUpdate += GestureArtifactLogic;
             On.RoR2.ItemCatalog.Init += RemoveGestureItem;
             On.RoR2.Inventory.CalculateEquipmentCooldownScale += GestureArtifactCdr;
-            ArtifactAPI.Add(Gesture);
+            ContentAddition.AddArtifactDef(Gesture);
         }
 
         private float GestureArtifactCdr(On.RoR2.Inventory.orig_CalculateEquipmentCooldownScale orig, Inventory self)
